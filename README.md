@@ -1,7 +1,6 @@
 # Desktop Cleaner
 
-![Desktop Cleaner Logo](https://verdex.id/assets/images/desktop-cleaner-banner.png)
-
+<img src="images/verdex_bg.png" width="250">
 Aplikasi sederhana untuk mengorganisir file-file di folder Downloads secara otomatis berdasarkan ekstensi file. Dibuat dengan bahasa pemrograman Go untuk membantu menjaga kerapian folder Downloads Anda.
 
 ## 🚀 Fitur
@@ -14,15 +13,15 @@ Aplikasi sederhana untuk mengorganisir file-file di folder Downloads secara otom
 
 ## 📁 Kategori File
 
-| Kategori | Ekstensi yang Didukung |
-|----------|------------------------|
-| **Gambar** | `.jpg`, `.jpeg`, `.png`, `.gif`, `.webp`, `.heic`, `.svg` |
-| **Video** | `.mp4`, `.mov`, `.mkv`, `.avi` |
-| **Dokumen** | `.pdf`, `.docx`, `.doc`, `.xlsx`, `.pptx`, `.txt` |
-| **Audio** | `.mp3`, `.wav`, `.m4a` |
-| **Arsip** | `.zip`, `.rar`, `.7z` |
-| **Aplikasi** | `.exe`, `.msi` |
-| **Lainnya** | File dengan ekstensi yang tidak terdaftar |
+| Kategori     | Ekstensi yang Didukung                                    |
+| ------------ | --------------------------------------------------------- |
+| **Gambar**   | `.jpg`, `.jpeg`, `.png`, `.gif`, `.webp`, `.heic`, `.svg` |
+| **Video**    | `.mp4`, `.mov`, `.mkv`, `.avi`                            |
+| **Dokumen**  | `.pdf`, `.docx`, `.doc`, `.xlsx`, `.pptx`, `.txt`         |
+| **Audio**    | `.mp3`, `.wav`, `.m4a`                                    |
+| **Arsip**    | `.zip`, `.rar`, `.7z`                                     |
+| **Aplikasi** | `.exe`, `.msi`                                            |
+| **Lainnya**  | File dengan ekstensi yang tidak terdaftar                 |
 
 ## 🛠️ Instalasi
 
@@ -34,17 +33,20 @@ Aplikasi sederhana untuk mengorganisir file-file di folder Downloads secara otom
 ### Langkah Instalasi
 
 1. **Clone repository**
+
    ```bash
-   git clone https://github.com/username/dekstop-cleaner.git
+   git clone https://github.com/eveeze/dekstop-cleaner.git
    cd dekstop-cleaner
    ```
 
 2. **Download dependencies**
+
    ```bash
    go mod tidy
    ```
 
 3. **Build aplikasi**
+
    ```bash
    go build -o desktop-cleaner main.go
    ```
@@ -59,6 +61,7 @@ Aplikasi sederhana untuk mengorganisir file-file di folder Downloads secara otom
 ### Penggunaan Dasar
 
 1. Jalankan aplikasi dengan perintah:
+
    ```bash
    go run main.go
    ```
@@ -88,20 +91,22 @@ Aplikasi sederhana untuk mengorganisir file-file di folder Downloads secara otom
 
 Secara default, aplikasi bekerja pada folder `Downloads`. Untuk mengubah direktori target:
 
-1. **Edit file `main.go`** pada baris 46:
+1. **Edit file `main.go`** pada targetPath:
+
    ```go
    // Ganti "Downloads" dengan folder yang diinginkan
    targetPath := filepath.Join(homeDir, "Desktop") // Contoh: Desktop
    ```
 
 2. **Contoh direktori lain:**
+
    ```go
    // Untuk folder Desktop
    targetPath := filepath.Join(homeDir, "Desktop")
-   
+
    // Untuk folder Documents
    targetPath := filepath.Join(homeDir, "Documents")
-   
+
    // Untuk custom path
    targetPath := "/path/to/your/folder"
    ```
@@ -109,15 +114,16 @@ Secara default, aplikasi bekerja pada folder `Downloads`. Untuk mengubah direkto
 ### Menambah Kategori File Baru
 
 1. **Edit variabel `dirMappings`** di file `main.go`:
+
    ```go
    var dirMappings = map[string]string{
        // Kategori yang sudah ada...
-       
+
        // Tambahkan kategori baru
        ".psd":  "Desain",
        ".ai":   "Desain",
        ".sketch": "Desain",
-       
+
        // Kategori programming
        ".go":   "Code",
        ".js":   "Code",
@@ -133,7 +139,7 @@ var dirMappings = map[string]string{
     ".jpg":  "Images",
     ".jpeg": "Images",
     ".png":  "Images",
-    
+
     // Ubah nama folder dari "Video" menjadi "Movies"
     ".mp4": "Movies",
     ".mov": "Movies",
@@ -164,24 +170,6 @@ GOOS=darwin GOARCH=amd64 go build -o desktop-cleaner-mac main.go
 GOOS=linux GOARCH=amd64 go build -o desktop-cleaner-linux main.go
 ```
 
-## 🤝 Kontribusi
-
-Kontribusi selalu diterima! Berikut cara berkontribusi:
-
-1. Fork repository ini
-2. Buat branch fitur baru (`git checkout -b feature/AmazingFeature`)
-3. Commit perubahan (`git commit -m 'Add some AmazingFeature'`)
-4. Push ke branch (`git push origin feature/AmazingFeature`)
-5. Buat Pull Request
-
-## 📝 Changelog
-
-### v1.0.0
-- ✨ Rilis awal dengan fitur dasar organisasi file
-- 📁 Dukungan untuk 7 kategori file utama
-- 🔄 Auto-create folder jika belum ada
-- 📊 Logging aktivitas real-time
-
 ## ⚠️ Catatan Penting
 
 - **Backup Data**: Selalu backup file penting sebelum menjalankan aplikasi
@@ -192,21 +180,16 @@ Kontribusi selalu diterima! Berikut cara berkontribusi:
 ## 🐛 Troubleshooting
 
 ### Error: "Gagal mendapatkan direktori home"
+
 - **Solusi**: Pastikan environment variable HOME (Linux/Mac) atau USERPROFILE (Windows) ter-set dengan benar
 
 ### Error: "Gagal membaca direktori target"
+
 - **Solusi**: Periksa apakah folder target ada dan aplikasi memiliki permission untuk membacanya
 
 ### File tidak terpindah
+
 - **Solusi**: Periksa apakah file sedang digunakan oleh aplikasi lain atau ada konflik nama file
-
-## 📞 Support
-
-Jika Anda mengalami masalah atau memiliki pertanyaan:
-
-- 🐛 [Buat Issue](https://github.com/username/dekstop-cleaner/issues)
-- 💬 [Diskusi](https://github.com/username/dekstop-cleaner/discussions)
-- 📧 Email: support@verdex.id
 
 ## 📜 Lisensi
 
@@ -216,7 +199,7 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 - Terima kasih kepada komunitas Go Indonesia
 - Inspirasi dari berbagai tool file organizer
-- [Verdex.id](https://verdex.id) untuk hosting assets
+- [Verdex.id](https://verdex.id)
 
 ---
 
@@ -228,6 +211,6 @@ Distributed under the MIT License. See `LICENSE` for more information.
 ![License](https://img.shields.io/badge/license-MIT-green.svg)
 ![Platform](https://img.shields.io/badge/platform-Windows%20%7C%20macOS%20%7C%20Linux-lightgrey.svg)
 
-[⭐ Star this repo](https://github.com/username/dekstop-cleaner) | [🐛 Report Bug](https://github.com/username/dekstop-cleaner/issues) | [💡 Request Feature](https://github.com/username/dekstop-cleaner/issues)
+[⭐ Star this repo](https://github.com/eveeze/dekstop-cleaner) | [🐛 Report Bug](https://github.com/eveeze/dekstop-cleaner/issues) | [💡 Request Feature](https://github.com/eveeze/dekstop-cleaner/issues)
 
 </div>
